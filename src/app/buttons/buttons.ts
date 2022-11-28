@@ -108,7 +108,7 @@ export default class Buttons extends LitElement {
       min-width: min-content;
     }
     .button::part(base) {
-      color: hsla(var(--ig-info-500));
+      color: hsla(var(--ig-success-500));
     }
     .dropdown::part(base) {
       height: max-content;
@@ -261,14 +261,14 @@ export default class Buttons extends LitElement {
             </igc-card-header>
             <igc-card-content class="body-content">
               <div class="column-layout custom-content">
-                <igc-button class="button_1">
+                <igc-button variant="outlined" class="button_1">
                   Button
                   <igc-ripple></igc-ripple>
                 </igc-button>
               </div>
             </igc-card-content>
             <igc-card-actions class="actions-content">
-              <igc-button class="button_1">
+              <igc-button variant="outlined" class="button_1">
                 Button
                 <igc-ripple></igc-ripple>
               </igc-button>
