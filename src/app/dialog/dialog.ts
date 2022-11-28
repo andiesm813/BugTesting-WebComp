@@ -1,8 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
-import { defineComponents, IgcButtonComponent, IgcDialogComponent, IgcInputComponent, IgcRippleComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcButtonComponent, IgcCardComponent, IgcDialogComponent, IgcIconButtonComponent, IgcIconComponent, IgcInputComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcButtonComponent, IgcRippleComponent, IgcDialogComponent, IgcInputComponent);
+defineComponents(IgcButtonComponent, IgcRippleComponent, IgcCardComponent, IgcIconButtonComponent, IgcIconComponent, IgcDialogComponent, IgcInputComponent);
 
 @customElement('app-dialog')
 export default class Dialog extends LitElement {
@@ -15,8 +15,9 @@ export default class Dialog extends LitElement {
       align-items: stretch;
       align-content: flex-start;
     }
-    .row-layout {
+    .column-layout {
       display: flex;
+      flex-direction: column;
     }
     .group {
       flex-wrap: wrap;
@@ -31,9 +32,8 @@ export default class Dialog extends LitElement {
       flex-grow: 1;
       flex-basis: 0;
     }
-    .column-layout {
+    .row-layout {
       display: flex;
-      flex-direction: column;
     }
     .group_1 {
       justify-content: flex-start;
@@ -41,8 +41,14 @@ export default class Dialog extends LitElement {
       align-content: flex-start;
       gap: 16px;
       position: relative;
-      min-width: 400px;
+      min-width: 50px;
       min-height: 50px;
+    }
+    .card {
+      width: 240px;
+      height: max-content;
+      min-width: 240px;
+      flex-shrink: 0;
     }
     .group_2 {
       justify-content: flex-start;
@@ -50,7 +56,7 @@ export default class Dialog extends LitElement {
       align-content: flex-start;
       gap: 16px;
       position: relative;
-      min-width: 50px;
+      min-width: 400px;
       min-height: 50px;
     }
     .group_3 {
@@ -75,11 +81,21 @@ export default class Dialog extends LitElement {
     .user-input {
       height: max-content;
       min-width: min-content;
-      flex-shrink: 0;
     }
-    .user-input_1 {
+    .input {
       height: max-content;
       min-width: min-content;
+      flex-shrink: 0;
+    }
+    .media-content {
+      height: 120px;
+    }
+    .actions-content {
+      min-width: 50px;
+      min-height: 40px;
+    }
+    .image {
+      height: 100%;
     }
     .content {
       height: max-content;
@@ -103,7 +119,7 @@ export default class Dialog extends LitElement {
       <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet'>
       <link rel='stylesheet' href='../../ig-theme.css'>
-      <div class="row-layout group">
+      <div class="column-layout group">
         <igc-button @click=${() => this.simpleDialog?.toggle()} class="user-input">
           DIALOG JUST BUTTONS
           <igc-ripple></igc-ripple>
@@ -112,6 +128,119 @@ export default class Dialog extends LitElement {
           DIALOG WITH MIN WIDTH
           <igc-ripple></igc-ripple>
         </igc-button>
+        <div class="row-layout group_1">
+          <igc-card class="card">
+            <igc-card-media class="media-content">
+              <img src="/src/assets/theme-light.svg" class="image" />
+            </igc-card-media>
+            <igc-card-header>
+              <h3 slot="title">
+                Cards purpose
+              </h3>
+              <h5 slot="subtitle">
+                has issues
+              </h5>
+            </igc-card-header>
+            <igc-card-actions class="actions-content">
+              <igc-button variant="flat" class="user-input">
+                Button
+                <igc-ripple></igc-ripple>
+              </igc-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  favorite
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  bookmark
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  share
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+            </igc-card-actions>
+          </igc-card>
+          <igc-card class="card">
+            <igc-card-media class="media-content">
+              <img src="/src/assets/theme-dark.svg" class="image" />
+            </igc-card-media>
+            <igc-card-header>
+              <h3 slot="title">
+                Is to show how
+              </h3>
+              <h5 slot="subtitle">
+                in web components
+              </h5>
+            </igc-card-header>
+            <igc-card-actions class="actions-content">
+              <igc-button variant="flat" class="user-input">
+                Button
+                <igc-ripple></igc-ripple>
+              </igc-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  favorite
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  bookmark
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  share
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+            </igc-card-actions>
+          </igc-card>
+          <igc-card class="card">
+            <igc-card-media class="media-content">
+              <img src="/src/assets/design system.png" class="image" />
+            </igc-card-media>
+            <igc-card-header>
+              <h3 slot="title">
+                The overlay
+              </h3>
+              <h5 slot="subtitle">
+                when the app is generated
+              </h5>
+            </igc-card-header>
+            <igc-card-actions class="actions-content">
+              <igc-button variant="flat" class="user-input">
+                Button
+                <igc-ripple></igc-ripple>
+              </igc-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  favorite
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  bookmark
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button variant="flat">
+                <span class="material-icons">
+                  share
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+            </igc-card-actions>
+          </igc-card>
+        </div>
       </div>
       <igc-dialog ?closeOnOutsideSelect="${true}" ?closeOnEscape="${true}" id="dialog-min-width">
         <h3 slot="title">
@@ -119,22 +248,22 @@ export default class Dialog extends LitElement {
             Custom Dialog with Min Width
           </h5>
         </h3>
-        <div class="column-layout group_1">
+        <div class="column-layout group_2">
           <h5 class="content"></h5>
-          <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input_1"></igc-input>
-          <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input_1"></igc-input>
-          <div class="row-layout group_2">
-            <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input"></igc-input>
-            <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input"></igc-input>
-            <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input"></igc-input>
+          <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input"></igc-input>
+          <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input"></igc-input>
+          <div class="row-layout group_1">
+            <igc-input label="Label/Placeholder" ?outlined="${false}" class="input"></igc-input>
+            <igc-input label="Label/Placeholder" ?outlined="${false}" class="input"></igc-input>
+            <igc-input label="Label/Placeholder" ?outlined="${false}" class="input"></igc-input>
           </div>
         </div>
         <div slot="footer">
-          <igc-button class="user-input_1">
+          <igc-button class="user-input">
             Add Product
             <igc-ripple></igc-ripple>
           </igc-button>
-          <igc-button variant="flat" class="user-input_1">
+          <igc-button variant="flat" class="user-input">
             Cancel
             <igc-ripple></igc-ripple>
           </igc-button>
@@ -148,11 +277,11 @@ export default class Dialog extends LitElement {
         </h3>
         <p class="typography__body-1 content"></p>
         <div slot="footer">
-          <igc-button class="user-input_1">
+          <igc-button class="user-input">
             ADD PRODUCT
             <igc-ripple></igc-ripple>
           </igc-button>
-          <igc-button variant="outlined" class="user-input_1">
+          <igc-button variant="outlined" class="user-input">
             CANCEL
             <igc-ripple></igc-ripple>
           </igc-button>
