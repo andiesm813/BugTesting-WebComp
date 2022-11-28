@@ -53,6 +53,15 @@ export default class App extends LitElement {
           </span>
           <div slot="content">Buttons</div>
         </igc-nav-drawer-item>
+        <igc-nav-drawer-item @click="${() => Router.go('/space-between')}">
+          <span slot="icon">
+            <span class="material-icons icon">
+              bug_report
+            </span>
+            <igc-ripple></igc-ripple>
+          </span>
+          <div slot="content">Space Between</div>
+        </igc-nav-drawer-item>
         <igc-nav-drawer-item @click="${() => Router.go('/cards-opacity')}">
           <span slot="icon">
             <span class="material-icons icon">
