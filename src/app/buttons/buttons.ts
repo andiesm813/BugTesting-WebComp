@@ -2,7 +2,7 @@ import { html, css, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
 import { defineComponents, IgcAvatarComponent, IgcButtonComponent, IgcCardComponent, IgcDialogComponent, IgcDropdownComponent, IgcIconButtonComponent, IgcIconComponent, IgcListComponent, IgcListItemComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcButtonComponent, IgcRippleComponent, IgcIconComponent, IgcDropdownComponent, IgcListComponent, IgcListItemComponent, IgcAvatarComponent, IgcCardComponent, IgcIconButtonComponent, IgcDialogComponent);
+defineComponents(IgcButtonComponent, IgcRippleComponent, IgcIconComponent, IgcDropdownComponent, IgcCardComponent, IgcIconButtonComponent, IgcListComponent, IgcListItemComponent, IgcAvatarComponent, IgcDialogComponent);
 
 @customElement('app-buttons')
 export default class Buttons extends LitElement {
@@ -39,16 +39,6 @@ export default class Buttons extends LitElement {
       position: relative;
       min-width: 50px;
     }
-    .group_2 {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: stretch;
-      align-content: flex-start;
-      gap: 24px;
-      position: relative;
-      min-width: 50px;
-      min-height: 50px;
-    }
     .card {
       height: max-content;
       min-width: 240px;
@@ -59,11 +49,21 @@ export default class Buttons extends LitElement {
       display: flex;
       flex-direction: column;
     }
-    .custom-content {
+    .custom-content-1 {
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
       gap: 16px;
+      position: relative;
+      min-width: 50px;
+      min-height: 50px;
+    }
+    .group_2 {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: flex-start;
+      gap: 24px;
       position: relative;
       min-width: 50px;
       min-height: 50px;
@@ -113,9 +113,6 @@ export default class Buttons extends LitElement {
     .dropdown::part(base) {
       height: max-content;
     }
-    .media-content {
-      height: 148px;
-    }
     .body-content {
       min-width: 50px;
       min-height: 50px;
@@ -126,6 +123,9 @@ export default class Buttons extends LitElement {
     }
     .icon-button::part(base) {
       color: hsla(var(--ig-secondary-500));
+    }
+    .media-content {
+      height: 148px;
     }
     .avatar {
       --background: none;
@@ -223,6 +223,42 @@ export default class Buttons extends LitElement {
               Option
             </igc-dropdown-item>
           </igc-dropdown>
+          <igc-card class="card">
+            <igc-card-header>
+              <h3 slot="title">
+                Card Title
+              </h3>
+              <h5 slot="subtitle">
+                This is the card subtitle
+              </h5>
+            </igc-card-header>
+            <igc-card-content class="body-content">
+              <div class="column-layout custom-content-1">
+                <igc-button variant="outlined" class="button_1">
+                  Button
+                  <igc-ripple></igc-ripple>
+                </igc-button>
+              </div>
+            </igc-card-content>
+            <igc-card-actions class="actions-content">
+              <igc-button variant="outlined" class="button_1">
+                Button
+                <igc-ripple></igc-ripple>
+              </igc-button>
+              <igc-icon-button variant="flat" class="icon-button">
+                <span class="material-icons">
+                  favorite
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+              <igc-icon-button variant="flat" class="icon-button">
+                <span class="material-icons">
+                  share
+                </span>
+                <igc-ripple></igc-ripple>
+              </igc-icon-button>
+            </igc-card-actions>
+          </igc-card>
         </div>
         <div class="row-layout group_2">
           <igc-list class="list">
@@ -260,7 +296,7 @@ export default class Buttons extends LitElement {
               </h5>
             </igc-card-header>
             <igc-card-content class="body-content">
-              <div class="column-layout custom-content">
+              <div class="column-layout custom-content-1">
                 <igc-button variant="outlined" class="button_1">
                   Button
                   <igc-ripple></igc-ripple>
@@ -286,7 +322,7 @@ export default class Buttons extends LitElement {
               </igc-icon-button>
             </igc-card-actions>
           </igc-card>
-          <div class="column-layout custom-content">
+          <div class="column-layout custom-content-1">
             <igc-button @click=${() => this.defaultDialog?.toggle()} class="button_1">
               Default dialog
               <igc-ripple></igc-ripple>
