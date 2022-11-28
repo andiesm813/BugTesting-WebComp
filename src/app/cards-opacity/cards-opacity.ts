@@ -72,6 +72,9 @@ export default class CardsOpacity extends LitElement {
       position: relative;
       min-width: 50px;
     }
+    .media-content {
+      height: 120px;
+    }
     .body-content {
       min-width: 50px;
       min-height: 50px;
@@ -84,6 +87,9 @@ export default class CardsOpacity extends LitElement {
       color: hsla(var(--ig-secondary-500));
     }
     .image {
+      height: 100%;
+    }
+    .image_1 {
       object-fit: cover;
       height: 120px;
       min-width: 0;
@@ -94,8 +100,14 @@ export default class CardsOpacity extends LitElement {
       height: max-content;
       min-width: min-content;
     }
-    .content {
+    .h6 {
       color: hsla(var(--ig-surface-500));
+      height: max-content;
+      min-width: min-content;
+    }
+    .text_1 {
+      color: hsla(var(--ig-surface-500));
+      width: 733px;
       height: max-content;
       min-width: min-content;
     }
@@ -122,6 +134,9 @@ export default class CardsOpacity extends LitElement {
       <div class="row-layout group">
         ${this.travelAppSelectedArticles?.map((item: any) => html`
           <igc-card class="card">
+            <igc-card-media class="media-content">
+              <img src="${item.image_url}" class="image" />
+            </igc-card-media>
             <igc-card-header>
               <h3 slot="title">
                 Product Name
@@ -132,7 +147,7 @@ export default class CardsOpacity extends LitElement {
             </igc-card-header>
             <igc-card-content class="body-content">
               <div class="column-layout group_1">
-                <img src="${item.image_url}" class="image" />
+                <img src="${item.image_url}" class="image_1" />
                 <p class="typography__body-1 text">
                   Here you can add some description of the product in more details
                 </p>
@@ -164,14 +179,14 @@ export default class CardsOpacity extends LitElement {
         `)}
       </div>
       <div class="column-layout group_2">
-        <h6 class="content">
+        <h6 class="h6">
           Issue REPRODUCED IN: Blazor and Web Components generated apps
         </h6>
         <div class="row-layout group_3">
-          <p class="typography__subtitle-1 content">
-            Cards have an opacity issue. They look disabled.
+          <p class="typography__subtitle-1 text_1">
+            The content placed inside the CARD SLOT looks like it's disabled. Some CSS class is applying a 0.6 opacity to the content of slots. I dont know if this affects other components with slots. 
           </p>
-          <h6 class="content">
+          <h6 class="h6">
             REPRODUCED IN: Blazor and WebComponents generated apps
           </h6>
         </div>
