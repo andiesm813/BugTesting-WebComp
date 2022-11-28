@@ -35,7 +35,7 @@ export default class Dialog extends LitElement {
     .row-layout {
       display: flex;
     }
-    .group_1 {
+    .cards {
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -50,7 +50,7 @@ export default class Dialog extends LitElement {
       min-width: 240px;
       flex-shrink: 0;
     }
-    .group_2 {
+    .group_1 {
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -59,7 +59,7 @@ export default class Dialog extends LitElement {
       min-width: 400px;
       min-height: 50px;
     }
-    .group_3 {
+    .group_2 {
       background-color: hsla(var(--ig-secondary-800));
       justify-content: flex-start;
       align-items: stretch;
@@ -70,7 +70,7 @@ export default class Dialog extends LitElement {
       min-width: 50px;
       min-height: 50px;
     }
-    .group_4 {
+    .group_3 {
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -128,17 +128,17 @@ export default class Dialog extends LitElement {
           DIALOG WITH MIN WIDTH
           <igc-ripple></igc-ripple>
         </igc-button>
-        <div class="row-layout group_1">
+        <div class="row-layout cards">
           <igc-card class="card">
             <igc-card-media class="media-content">
               <img src="/src/assets/theme-light.svg" class="image" />
             </igc-card-media>
             <igc-card-header>
               <h3 slot="title">
-                Cards purpose
+                Card Title
               </h3>
               <h5 slot="subtitle">
-                has issues
+                This is the card subtitle
               </h5>
             </igc-card-header>
             <igc-card-actions class="actions-content">
@@ -149,12 +149,6 @@ export default class Dialog extends LitElement {
               <igc-icon-button variant="flat">
                 <span class="material-icons">
                   favorite
-                </span>
-                <igc-ripple></igc-ripple>
-              </igc-icon-button>
-              <igc-icon-button variant="flat">
-                <span class="material-icons">
-                  bookmark
                 </span>
                 <igc-ripple></igc-ripple>
               </igc-icon-button>
@@ -172,10 +166,10 @@ export default class Dialog extends LitElement {
             </igc-card-media>
             <igc-card-header>
               <h3 slot="title">
-                Is to show how
+                Card Title
               </h3>
               <h5 slot="subtitle">
-                in web components
+                This is the card subtitle
               </h5>
             </igc-card-header>
             <igc-card-actions class="actions-content">
@@ -186,12 +180,6 @@ export default class Dialog extends LitElement {
               <igc-icon-button variant="flat">
                 <span class="material-icons">
                   favorite
-                </span>
-                <igc-ripple></igc-ripple>
-              </igc-icon-button>
-              <igc-icon-button variant="flat">
-                <span class="material-icons">
-                  bookmark
                 </span>
                 <igc-ripple></igc-ripple>
               </igc-icon-button>
@@ -209,10 +197,10 @@ export default class Dialog extends LitElement {
             </igc-card-media>
             <igc-card-header>
               <h3 slot="title">
-                The overlay
+                Card Title
               </h3>
               <h5 slot="subtitle">
-                when the app is generated
+                This is the card subtitle
               </h5>
             </igc-card-header>
             <igc-card-actions class="actions-content">
@@ -223,12 +211,6 @@ export default class Dialog extends LitElement {
               <igc-icon-button variant="flat">
                 <span class="material-icons">
                   favorite
-                </span>
-                <igc-ripple></igc-ripple>
-              </igc-icon-button>
-              <igc-icon-button variant="flat">
-                <span class="material-icons">
-                  bookmark
                 </span>
                 <igc-ripple></igc-ripple>
               </igc-icon-button>
@@ -248,11 +230,11 @@ export default class Dialog extends LitElement {
             Custom Dialog with Min Width
           </h5>
         </h3>
-        <div class="column-layout group_2">
+        <div class="column-layout group_1">
           <h5 class="content"></h5>
           <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input"></igc-input>
           <igc-input label="Label/Placeholder" ?outlined="${false}" class="user-input"></igc-input>
-          <div class="row-layout group_1">
+          <div class="row-layout cards">
             <igc-input label="Label/Placeholder" ?outlined="${false}" class="input"></igc-input>
             <igc-input label="Label/Placeholder" ?outlined="${false}" class="input"></igc-input>
             <igc-input label="Label/Placeholder" ?outlined="${false}" class="input"></igc-input>
@@ -287,11 +269,11 @@ export default class Dialog extends LitElement {
           </igc-button>
         </div>
       </igc-dialog>
-      <div class="column-layout group_3">
+      <div class="column-layout group_2">
         <h6 class="content_1">
           ISSUES
         </h6>
-        <div class="row-layout group_4">
+        <div class="row-layout group_3">
           <p class="typography__subtitle-1 content_1">
             The top-left padding of the dialog doesnt match the bottom-right padding.
           </p>
@@ -299,7 +281,7 @@ export default class Dialog extends LitElement {
             REPRODUCED IN: AppBuilder Edit &amp; Preview and Angular generated app
           </h6>
         </div>
-        <div class="row-layout group_4">
+        <div class="row-layout group_3">
           <p class="typography__subtitle-1 content_1">
             The font of the title shown in AppBuilder preview doesnt match the generated font 
           </p>
@@ -307,7 +289,7 @@ export default class Dialog extends LitElement {
             REPRODUCED IN: Angular and Web Components generated apps
           </h6>
         </div>
-        <div class="row-layout group_4">
+        <div class="row-layout group_3">
           <p class="typography__subtitle-1 content_1">
             Action buttons dont have spacing between them
           </p>
@@ -315,7 +297,7 @@ export default class Dialog extends LitElement {
             REPRODUCED IN: AppBuilder Edit &amp; Preview
           </h6>
         </div>
-        <div class="row-layout group_4">
+        <div class="row-layout group_3">
           <p class="typography__subtitle-1 content_1">
             Dialog is cropped
           </p>
