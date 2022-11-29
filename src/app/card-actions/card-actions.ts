@@ -1,8 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { defineComponents, IgcButtonComponent, IgcCardComponent, IgcIconButtonComponent, IgcIconComponent, IgcRippleComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcBadgeComponent, IgcButtonComponent, IgcCardComponent, IgcIconButtonComponent, IgcIconComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcCardComponent, IgcButtonComponent, IgcRippleComponent, IgcIconButtonComponent, IgcIconComponent);
+defineComponents(IgcCardComponent, IgcButtonComponent, IgcRippleComponent, IgcIconButtonComponent, IgcIconComponent, IgcBadgeComponent);
 
 @customElement('app-card-actions')
 export default class CardActions extends LitElement {
@@ -84,17 +84,14 @@ export default class CardActions extends LitElement {
       color: hsla(var(--ig-gray-300));
       height: max-content;
       min-width: min-content;
-      flex-grow: 1;
-      flex-basis: 0;
-    }
-    .text_1 {
-      color: hsla(var(--ig-gray-300));
-      height: max-content;
-      min-width: min-content;
     }
     .button {
       height: max-content;
       min-width: min-content;
+    }
+    .badge {
+      width: max-content;
+      height: max-content;
     }
   `;
 
@@ -206,11 +203,17 @@ export default class CardActions extends LitElement {
           <p class="typography__subtitle-1 text">
             If the positioning of the actions is reversed, when generated, Web Comp. and Blazor reverses them back to the original place.
           </p>
+          <igc-badge variant="success" class="badge">
+            BUG CREATED
+          </igc-badge>
         </div>
         <div class="row-layout group_1">
-          <p class="typography__subtitle-1 text_1">
+          <p class="typography__subtitle-1 text">
             Action icons look justified, instead of being aligned to the left or right
           </p>
+          <igc-badge variant="success" class="badge">
+            BUG CREATED
+          </igc-badge>
         </div>
       </div>
     `;
