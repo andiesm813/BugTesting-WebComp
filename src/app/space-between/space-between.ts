@@ -1,8 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
-import { defineComponents, IgcButtonComponent, IgcDropdownComponent, IgcIconComponent, IgcRippleComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcBadgeComponent, IgcButtonComponent, IgcDropdownComponent, IgcIconComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcButtonComponent, IgcRippleComponent, IgcIconComponent, IgcDropdownComponent);
+defineComponents(IgcButtonComponent, IgcRippleComponent, IgcIconComponent, IgcDropdownComponent, IgcBadgeComponent);
 
 @customElement('app-space-between')
 export default class SpaceBetween extends LitElement {
@@ -75,10 +75,14 @@ export default class SpaceBetween extends LitElement {
       height: max-content;
       min-width: min-content;
     }
+    .badge {
+      width: max-content;
+      height: max-content;
+    }
   `;
 
-  @query('#button-1')
-  public button1?: IgcButtonComponent;
+  @query('#button')
+  public button?: IgcButtonComponent;
 
   @query('#dropdown-1')
   public dropdown1?: IgcDropdownComponent;
@@ -94,7 +98,7 @@ export default class SpaceBetween extends LitElement {
             Button
             <igc-ripple></igc-ripple>
           </igc-button>
-          <igc-button variant="flat" @click=${() => this.dropdown1?.toggle(this.button1)} id="button-1" class="button">
+          <igc-button variant="flat" @click=${() => this.dropdown1?.toggle(this.button)} id="button" class="button">
             <span>With dropdown</span>
             <span class="material-icons">
               keyboard_arrow_down
@@ -135,6 +139,9 @@ export default class SpaceBetween extends LitElement {
           <h6 class="content">
             REPRODUCED IN: AppBuilder Edit &amp; Preview, Blazor and Web Components
           </h6>
+          <igc-badge variant="info" class="badge">
+            BUG CREATED
+          </igc-badge>
         </div>
       </div>
     `;

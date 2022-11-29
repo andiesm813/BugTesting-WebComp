@@ -157,8 +157,8 @@ export default class Buttons extends LitElement {
     }
   `;
 
-  @query('#button')
-  public button?: IgcButtonComponent;
+  @query('#group')
+  public group?: ;
 
   @query('#dropdown')
   public dropdown?: IgcDropdownComponent;
@@ -166,16 +166,13 @@ export default class Buttons extends LitElement {
   @query('#default-dialog')
   public defaultDialog?: IgcDialogComponent;
 
-  @query('#custom-dialog')
-  public customDialog?: IgcDialogComponent;
-
   render() {
     return html`
       <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet'>
       <link rel='stylesheet' href='../../ig-theme.css'>
       <div class="row-layout group">
-        <div class="row-layout group_1">
+        <div @click=${() => this.dropdown?.toggle(this.group)} id="group" class="row-layout group_1">
           <igc-button class="button">
             Button
             <igc-ripple></igc-ripple>
@@ -209,7 +206,7 @@ export default class Buttons extends LitElement {
             <span>Button</span>
             <igc-ripple></igc-ripple>
           </igc-button>
-          <igc-button variant="flat" @click=${() => this.dropdown?.toggle(this.button)} id="button" class="button">
+          <igc-button variant="flat" class="button">
             <span>With dropdown</span>
             <span class="material-icons">
               keyboard_arrow_down
@@ -290,11 +287,11 @@ export default class Buttons extends LitElement {
             </igc-card-actions>
           </igc-card>
           <div class="column-layout group_3">
-            <igc-button @click=${() => this.defaultDialog?.toggle()} class="button_1">
+            <igc-button class="button_1">
               Default dialog
               <igc-ripple></igc-ripple>
             </igc-button>
-            <igc-button @click=${() => this.customDialog?.toggle()} class="button_1">
+            <igc-button class="button_1">
               Custom Dialog
               <igc-ripple></igc-ripple>
             </igc-button>
@@ -323,14 +320,20 @@ export default class Buttons extends LitElement {
           <h6 class="content">
             REPRODUCED IN: Blazor and Web Components apps
           </h6>
+          <igc-badge variant="info" class="badge">
+            BUG CREATED
+          </igc-badge>
         </div>
         <div class="row-layout group_5">
           <p class="typography__subtitle-1 text">
-            When i change the foreground color of just ONE button, all the buttons get changed their foregrounds, except if they are part of a component.
+            When i change the foreground color of just ONE button, all the buttons get changed their foregrounds, except if they are part of a component. With the exception of buttons placed in custom dialog window content.
           </p>
           <h6 class="content">
             REPRODUCED IN: Blazor and Web Components apps
           </h6>
+          <igc-badge variant="info" class="badge">
+            BUG CREATED
+          </igc-badge>
         </div>
       </div>
       <igc-dialog ?closeOnOutsideSelect="${true}" ?closeOnEscape="${true}" id="default-dialog">
@@ -345,7 +348,7 @@ export default class Buttons extends LitElement {
           <igc-button variant="flat" @click=${() => this.defaultDialog?.toggle()}>OK</igc-button>
         </div>
       </igc-dialog>
-      <igc-dialog ?closeOnOutsideSelect="${true}" ?closeOnEscape="${true}" id="custom-dialog">
+      <igc-dialog ?closeOnOutsideSelect="${true}" ?closeOnEscape="${true}">
         <h3 slot="title">
           <h5>
             Confirmation

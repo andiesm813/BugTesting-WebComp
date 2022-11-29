@@ -1,8 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { defineComponents, IgcButtonComponent, IgcCardComponent, IgcIconButtonComponent, IgcIconComponent, IgcRippleComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcBadgeComponent, IgcButtonComponent, IgcCardComponent, IgcIconButtonComponent, IgcIconComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcCardComponent, IgcButtonComponent, IgcRippleComponent, IgcIconButtonComponent, IgcIconComponent);
+defineComponents(IgcCardComponent, IgcButtonComponent, IgcRippleComponent, IgcIconButtonComponent, IgcIconComponent, IgcBadgeComponent);
 
 @customElement('app-cards-opacity')
 export default class CardsOpacity extends LitElement {
@@ -108,6 +108,10 @@ export default class CardsOpacity extends LitElement {
     .button {
       height: max-content;
       min-width: min-content;
+    }
+    .badge {
+      width: max-content;
+      height: max-content;
     }
   `;
 
@@ -249,6 +253,9 @@ export default class CardsOpacity extends LitElement {
           <h6 class="h6">
             REPRODUCED IN: Blazor and WebComponents generated apps
           </h6>
+          <igc-badge variant="info" class="badge">
+            BUG CREATED
+          </igc-badge>
         </div>
       </div>
     `;
