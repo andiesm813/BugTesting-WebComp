@@ -4,6 +4,7 @@ import './buttons/buttons';
 import './space-between/space-between';
 import './cards-opacity/cards-opacity';
 import './card-actions/card-actions';
+import './dialog/dialog';
 
 export const routes: Route[] = [
   { path: '', component: 'app-buttons', name: 'Buttons' },
@@ -11,6 +12,7 @@ export const routes: Route[] = [
   { path: 'space-between', component: 'app-space-between', name: 'Space Between' },
   { path: 'cards-opacity', component: 'app-cards-opacity', name: 'Cards Opacity' },
   { path: 'card-actions', component: 'app-card-actions', name: 'Card Actions' },
+  { path: 'dialog', component: 'app-dialog', name: 'Dialog' },
   // The fallback route should always be after other alternatives.
   { path: '(.*)', component: 'app-not-found' }
 ];
