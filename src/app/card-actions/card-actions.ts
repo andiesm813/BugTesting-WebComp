@@ -43,7 +43,7 @@ export default class CardActions extends LitElement {
       flex-direction: column;
     }
     .group {
-      background-color: hsla(var(--ig-secondary-800));
+      background-color: #24272B;
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -75,17 +75,22 @@ export default class CardActions extends LitElement {
     .image {
       height: 100%;
     }
-    .content {
+    .h6 {
       color: hsla(var(--ig-surface-500));
       height: max-content;
       min-width: min-content;
     }
     .text {
-      color: hsla(var(--ig-surface-500));
+      color: hsla(var(--ig-gray-300));
       height: max-content;
       min-width: min-content;
       flex-grow: 1;
       flex-basis: 0;
+    }
+    .text_1 {
+      color: hsla(var(--ig-gray-300));
+      height: max-content;
+      min-width: min-content;
     }
     .button {
       height: max-content;
@@ -194,7 +199,7 @@ export default class CardActions extends LitElement {
         </igc-card>
       </div>
       <div class="column-layout group">
-        <h6 class="content">
+        <h6 class="h6">
           Both issues REPRODUCED IN: Blazor and Web Components generated apps
         </h6>
         <div class="row-layout group_1">
@@ -203,7 +208,7 @@ export default class CardActions extends LitElement {
           </p>
         </div>
         <div class="row-layout group_1">
-          <p class="typography__subtitle-1 content">
+          <p class="typography__subtitle-1 text_1">
             Action icons look justified, instead of being aligned to the left or right
           </p>
         </div>

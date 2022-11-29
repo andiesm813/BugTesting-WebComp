@@ -52,7 +52,7 @@ export default class CardsOpacity extends LitElement {
       min-height: 50px;
     }
     .group {
-      background-color: hsla(var(--ig-secondary-800));
+      background-color: #24272B;
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -100,7 +100,7 @@ export default class CardsOpacity extends LitElement {
       min-width: min-content;
     }
     .text {
-      color: hsla(var(--ig-surface-500));
+      color: hsla(var(--ig-gray-300));
       width: 733px;
       height: max-content;
       min-width: min-content;
@@ -244,7 +244,7 @@ export default class CardsOpacity extends LitElement {
       </div>
       <div class="column-layout group">
         <h6 class="h6">
-          Issue REPRODUCED IN: Blazor and Web Components generated apps
+          Issue REPRODUCED IN: Blazor and Web Components generated apps with Material and Fluent Themes
         </h6>
         <div class="row-layout group_1">
           <p class="typography__subtitle-1 text">
@@ -253,7 +253,7 @@ export default class CardsOpacity extends LitElement {
           <h6 class="h6">
             REPRODUCED IN: Blazor and WebComponents generated apps
           </h6>
-          <igc-badge variant="info" class="badge">
+          <igc-badge variant="success" class="badge">
             BUG CREATED
           </igc-badge>
         </div>
