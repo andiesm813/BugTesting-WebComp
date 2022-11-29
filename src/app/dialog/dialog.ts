@@ -283,7 +283,7 @@ export default class Dialog extends LitElement {
             The top-left padding of the dialog doesnt match the bottom-right padding.
           </p>
           <h6 class="h6">
-            REPRODUCED IN: AppBuilder Edit &amp; Preview and Angular generated app
+            REPRODUCED IN: AppBuilder Edit &amp; Preview and Angular and Web Components generated apps
           </h6>
         </div>
         <div class="row-layout group_3">
