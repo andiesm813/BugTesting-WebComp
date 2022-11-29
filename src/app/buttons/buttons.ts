@@ -1,8 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
-import { defineComponents, IgcAvatarComponent, IgcBadgeComponent, IgcButtonComponent, IgcCardComponent, IgcDialogComponent, IgcDropdownComponent, IgcIconButtonComponent, IgcIconComponent, IgcListComponent, IgcListItemComponent, IgcRippleComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcAvatarComponent, IgcBadgeComponent, IgcButtonComponent, IgcCardComponent, IgcDialogComponent, IgcDropdownComponent, IgcIconComponent, IgcListComponent, IgcListItemComponent, IgcRippleComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcButtonComponent, IgcRippleComponent, IgcIconComponent, IgcDropdownComponent, IgcListComponent, IgcListItemComponent, IgcAvatarComponent, IgcCardComponent, IgcIconButtonComponent, IgcBadgeComponent, IgcDialogComponent);
+defineComponents(IgcButtonComponent, IgcRippleComponent, IgcIconComponent, IgcDropdownComponent, IgcListComponent, IgcListItemComponent, IgcAvatarComponent, IgcCardComponent, IgcDialogComponent, IgcBadgeComponent);
 
 @customElement('app-buttons')
 export default class Buttons extends LitElement {
@@ -11,12 +11,13 @@ export default class Buttons extends LitElement {
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
     }
-    .row-layout {
+    .column-layout {
       display: flex;
+      flex-direction: column;
     }
     .group {
       flex-wrap: wrap;
@@ -31,16 +32,19 @@ export default class Buttons extends LitElement {
       flex-grow: 1;
       flex-basis: 0;
     }
-    .group_1 {
+    .row-layout {
+      display: flex;
+    }
+    .buttons {
       justify-content: flex-start;
-      align-items: stretch;
+      align-items: center;
       align-content: flex-start;
-      gap: 8px;
+      gap: 16px;
       position: relative;
       min-width: 50px;
+      min-height: 50px;
     }
-    .group_2 {
-      flex-wrap: wrap;
+    .group_1 {
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -50,16 +54,12 @@ export default class Buttons extends LitElement {
       min-height: 50px;
     }
     .card {
+      width: 320px;
       height: max-content;
-      min-width: 240px;
-      max-width: 320px;
+      min-width: 320px;
       flex-shrink: 0;
     }
-    .column-layout {
-      display: flex;
-      flex-direction: column;
-    }
-    .group_3 {
+    .group_2 {
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -68,8 +68,8 @@ export default class Buttons extends LitElement {
       min-width: 50px;
       min-height: 50px;
     }
-    .group_4 {
-      background-color: hsla(var(--ig-secondary-800));
+    .group_3 {
+      background-color: #24272B;
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
@@ -79,21 +79,13 @@ export default class Buttons extends LitElement {
       min-width: 50px;
       min-height: 50px;
     }
-    .group_5 {
+    .group_4 {
       justify-content: flex-start;
       align-items: stretch;
       align-content: flex-start;
       gap: 16px;
       position: relative;
       min-width: 50px;
-    }
-    .group_6 {
-      justify-content: flex-start;
-      align-items: stretch;
-      align-content: flex-start;
-      position: relative;
-      min-width: 50px;
-      min-height: 50px;
     }
     .button {
       height: max-content;
@@ -121,9 +113,6 @@ export default class Buttons extends LitElement {
       min-width: 50px;
       min-height: 40px;
     }
-    .icon-button::part(base) {
-      color: hsla(var(--ig-secondary-500));
-    }
     .avatar {
       --background: none;
     }
@@ -132,18 +121,13 @@ export default class Buttons extends LitElement {
       width: 24px;
       height: 24px;
     }
-    .content {
+    .h6 {
       color: hsla(var(--ig-surface-500));
       height: max-content;
       min-width: min-content;
     }
     .text {
-      color: hsla(var(--ig-surface-500));
-      width: 811px;
-      height: max-content;
-      min-width: min-content;
-    }
-    .text_1 {
+      color: hsla(var(--ig-gray-300));
       height: max-content;
       min-width: min-content;
     }
@@ -157,22 +141,22 @@ export default class Buttons extends LitElement {
     }
   `;
 
-  @query('#group')
-  public group?: ;
+  @query('#button')
+  public button?: IgcButtonComponent;
 
   @query('#dropdown')
   public dropdown?: IgcDropdownComponent;
 
-  @query('#default-dialog')
-  public defaultDialog?: IgcDialogComponent;
+  @query('#custom-dialog')
+  public customDialog?: IgcDialogComponent;
 
   render() {
     return html`
       <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet'>
       <link rel='stylesheet' href='../../ig-theme.css'>
-      <div class="row-layout group">
-        <div @click=${() => this.dropdown?.toggle(this.group)} id="group" class="row-layout group_1">
+      <div class="column-layout group">
+        <div class="row-layout buttons">
           <igc-button class="button">
             Button
             <igc-ripple></igc-ripple>
@@ -206,7 +190,7 @@ export default class Buttons extends LitElement {
             <span>Button</span>
             <igc-ripple></igc-ripple>
           </igc-button>
-          <igc-button variant="flat" class="button">
+          <igc-button variant="flat" @click=${() => this.dropdown?.toggle(this.button)} id="button" class="button">
             <span>With dropdown</span>
             <span class="material-icons">
               keyboard_arrow_down
@@ -219,7 +203,7 @@ export default class Buttons extends LitElement {
             </igc-dropdown-item>
           </igc-dropdown>
         </div>
-        <div class="row-layout group_2">
+        <div class="row-layout group_1">
           <igc-list class="list">
             <igc-list-item>
               <div slot="start">
@@ -245,119 +229,56 @@ export default class Buttons extends LitElement {
           <igc-card class="card">
             <igc-card-header>
               <h3 slot="title">
-                Card Title
+                Title goes here...
               </h3>
               <h5 slot="subtitle">
-                This is the card subtitle
+                Subtitle goes here...
               </h5>
             </igc-card-header>
             <igc-card-content class="body-content">
-              <div class="column-layout group_3">
+              <div class="column-layout group_2">
                 <igc-button class="button_1">
-                  Button IN CONTENT
+                  Button in content
                   <igc-ripple></igc-ripple>
                 </igc-button>
                 <igc-button variant="outlined" class="button_1">
-                  BUTTON IN CONTENT
+                  Button in content
                   <igc-ripple></igc-ripple>
                 </igc-button>
               </div>
             </igc-card-content>
             <igc-card-actions class="actions-content">
-              <igc-button variant="outlined" class="button_1">
+              <igc-button variant="flat" class="button_1">
                 Button
                 <igc-ripple></igc-ripple>
               </igc-button>
-              <igc-icon-button variant="flat" class="icon-button">
-                <span class="material-icons">
-                  favorite
-                </span>
-                <igc-ripple></igc-ripple>
-              </igc-icon-button>
-              <igc-icon-button variant="flat" class="icon-button">
-                <span class="material-icons">
-                  share
-                </span>
-                <igc-ripple></igc-ripple>
-              </igc-icon-button>
               <igc-button class="button_1">
                 Button
                 <igc-ripple></igc-ripple>
               </igc-button>
             </igc-card-actions>
           </igc-card>
-          <div class="column-layout group_3">
-            <igc-button class="button_1">
-              Default dialog
-              <igc-ripple></igc-ripple>
-            </igc-button>
-            <igc-button class="button_1">
-              Custom Dialog
+          <div class="column-layout group_2">
+            <igc-button @click=${() => this.customDialog?.toggle()} class="button_1">
+              Custom dialog
               <igc-ripple></igc-ripple>
             </igc-button>
           </div>
         </div>
       </div>
-      <div class="column-layout group_4">
-        <h6 class="content">
-          ISSUES
-        </h6>
-        <div class="row-layout group_5">
-          <p class="typography__subtitle-1 content">
-            When a button with RAISED or FLAT type has the icon switched turned on, it grows 2px in height
-          </p>
-          <h6 class="content">
-            REPRODUCED IN: AppBuilder Edit &amp; Preview and Angular app
-          </h6>
-          <igc-badge variant="info" class="badge">
-            BUG CREATED
-          </igc-badge>
-        </div>
-        <div class="row-layout group_5">
-          <p class="typography__subtitle-1 content">
-            Button's INNER PADDING in the generated apps is lacking, so they look smaller than Angular.
-          </p>
-          <h6 class="content">
-            REPRODUCED IN: Blazor and Web Components apps
-          </h6>
-          <igc-badge variant="info" class="badge">
-            BUG CREATED
-          </igc-badge>
-        </div>
-        <div class="row-layout group_5">
-          <p class="typography__subtitle-1 text">
-            When i change the foreground color of just ONE button, all the buttons get changed their foregrounds, except if they are part of a component. With the exception of buttons placed in custom dialog window content.
-          </p>
-          <h6 class="content">
-            REPRODUCED IN: Blazor and Web Components apps
-          </h6>
-          <igc-badge variant="info" class="badge">
-            BUG CREATED
-          </igc-badge>
-        </div>
-      </div>
-      <igc-dialog ?closeOnOutsideSelect="${true}" ?closeOnEscape="${true}" id="default-dialog">
+      <igc-dialog ?closeOnOutsideSelect="${true}" ?closeOnEscape="${true}" id="custom-dialog">
         <h3 slot="title">
           <h5>
             Confirmation
           </h5>
         </h3>
-        <p>Are you sure you want to do this?</p>
-        <div slot="footer">
-          <igc-button variant="flat" @click=${() => this.defaultDialog?.toggle()}>Cancel</igc-button>
-          <igc-button variant="flat" @click=${() => this.defaultDialog?.toggle()}>OK</igc-button>
-        </div>
-      </igc-dialog>
-      <igc-dialog ?closeOnOutsideSelect="${true}" ?closeOnEscape="${true}">
-        <h3 slot="title">
-          <h5>
-            Confirmation
-          </h5>
-        </h3>
-        <div class="row-layout group_6">
-          <p class="typography__body-1 text_1"></p>
-          <igc-button class="button">
-            Button
+        <div class="column-layout group_2">
+          <igc-button class="button_1">
+            Button in content
+            <igc-ripple></igc-ripple>
+          </igc-button>
+          <igc-button variant="outlined" class="button_1">
+            Button in content
             <igc-ripple></igc-ripple>
           </igc-button>
         </div>
@@ -372,6 +293,44 @@ export default class Buttons extends LitElement {
           </igc-button>
         </div>
       </igc-dialog>
+      <div class="column-layout group_3">
+        <h6 class="h6">
+          ISSUES
+        </h6>
+        <div class="row-layout group_4">
+          <p class="typography__subtitle-1 text">
+            When a button with RAISED or FLAT type has the icon switched turned on, it grows 2px in height
+          </p>
+          <h6 class="h6">
+            REPRODUCED IN: AppBuilder Edit/Preview and Angular app
+          </h6>
+          <igc-badge variant="success" class="badge">
+            BUG CREATED
+          </igc-badge>
+        </div>
+        <div class="row-layout group_4">
+          <p class="typography__subtitle-1 text">
+            Button's INNER PADDING in the generated apps is lacking, so they look smaller than Angular
+          </p>
+          <h6 class="h6">
+            REPRODUCED IN: Blazor and Web Components apps
+          </h6>
+          <igc-badge variant="success" class="badge">
+            BUG CREATED
+          </igc-badge>
+        </div>
+        <div class="row-layout group_4">
+          <p class="typography__subtitle-1 text">
+            When i change the foreground color of just ONE button, all the buttons get changed their foregrounds, except if they are part of a component. With the exception of buttons placed in custom dialog window content
+          </p>
+          <h6 class="h6">
+            REPRODUCED IN: Blazor and Web Components apps
+          </h6>
+          <igc-badge variant="success" class="badge">
+            BUG CREATED
+          </igc-badge>
+        </div>
+      </div>
     `;
   }
 }
