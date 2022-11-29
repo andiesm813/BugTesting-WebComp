@@ -262,7 +262,9 @@ export default class Dialog extends LitElement {
             Confirmation
           </h5>
         </h3>
-        <p class="typography__body-1 content"></p>
+        <p class="typography__body-1 content">
+          This is a simple custom dialog
+        </p>
         <div slot="footer">
           <igc-button class="user-input">
             ADD PRODUCT
